@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clock</title>
+  <style>
+    html, body { height: 100%; margin: 0; background: #000; }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      color: #fff;
+    }
+    #clock {
+      font-size: min(22vw, 40vh);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock">00:00</div>
+  <script>
+    function pad(n) { return String(n).padStart(2, "0"); }
+    function tick() {
+      const d = new Date();
+      document.getElementById("clock").textContent = pad(d.getHours()) + ":" + pad(d.getMinutes());
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+</html>
